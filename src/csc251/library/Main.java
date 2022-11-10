@@ -1,21 +1,15 @@
 package csc251.library;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.File;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
-        Set<String> auth = new HashSet<>();
-        auth.add("Hello");
-        Set<String> auth2 = new HashSet<>();
-        auth2.add("Frank Herbert");
-        Book book1 = new Book("Book", "12341234", auth);
-        Book book2 = new Book("Dune", "004112729", auth2);
+    public static void main(String[] args) throws IOException {
+        File books = new File("src/csc251/library/books.list");
+        File authors = new File("src/csc251/library/authors.list");
         BookRepository repo = new BookRepository();
-        repo.addBook(book1);
-        repo.addBook(book2);
-        System.out.println(repo.findBookByISBN("12341234").getAuthors());
-        System.out.println(repo.getAuthors());
+        BookRepositoryWorker worker = new BookRepositoryWorker();
+        worker.load(authors, books, repo);
+
         }
 }
