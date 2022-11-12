@@ -23,7 +23,8 @@ public class Book {
         return this.tile;
     }
 
-    public Book setISBN(){
+    public Book setISBN(String isbn){
+        this.isbn = isbn;
         return null;
     }
 
@@ -36,6 +37,7 @@ public class Book {
     }
 
     public Book addAuthor(String author){
+        this.author.add(author);
         return null;
     }
 }

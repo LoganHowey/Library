@@ -10,6 +10,9 @@ public class Main {
         BookRepository repo = new BookRepository();
         BookRepositoryWorker worker = new BookRepositoryWorker();
         worker.load(authors, books, repo);
-
+        repo.getBooks();
+        System.out.println(repo.findBookByISBN("978-0201485677").getAuthors());
+        System.out.println(repo.getAuthors());
+        System.out.println(repo.findBookByAuthor("RobertCecilMartin"));
         }
 }
